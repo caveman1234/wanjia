@@ -6,17 +6,34 @@ import {router} from './router'
 import axios from 'axios';
 Vue.config.productionTip = false;
 
-Vue.prototype.$http = axios;
-import  {AlertPlugin,LoadingPlugin} from 'vux'
+
+import  {AlertPlugin, LoadingPlugin} from 'vux'
 Vue.use(AlertPlugin);
 Vue.use(LoadingPlugin);
-
-
+//axios,begin+++++++++++
+Vue.prototype.$http = axios;
+axios.interceptors.request.use(function (config) {
+    vuxLoading.show();
+    return config;
+}, function (error) {
+    vuxLoading.hide();
+    return Promise.reject(error);
+});
+axios.interceptors.response.use(function (response) {
+    setTimeout(x => vuxLoading.hide(), 500);
+    // vuxLoading.hide();
+    return response;
+}, function (error) {
+    vuxLoading.hide();
+    return Promise.reject(error);
+});
+//axios,end++++++++++++++
 
 /* eslint-disable no-new */
-new Vue({
+let instance = new Vue({
     el: '#app',
     router,
     template: '<App/>',
     components: {App}
 });
+window.vuxLoading = instance.$vux.loading;

@@ -17,5 +17,5 @@
 </script>
 
 <style scoped>
-	@import "personal.less";
+	@import "personal.scss";
 </style>

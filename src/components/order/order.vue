@@ -17,6 +17,6 @@
 </script>
 
 <style scoped>
-	@import "order.less";
+	@import "order.scss";
 
 </style>

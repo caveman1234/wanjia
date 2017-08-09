@@ -62,5 +62,5 @@
 </script>
 
 <style scoped>
-	@import "./main.less";
+	@import "main.scss";
 </style>

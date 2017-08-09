@@ -110,6 +110,6 @@
 </script>
 
 <style scoped>
-	@import "home.less";
+	@import "home.scss";
 
 </style>
