@@ -61,6 +61,6 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 	@import "main.scss";
 </style>

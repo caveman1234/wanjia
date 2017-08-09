@@ -5,6 +5,7 @@
 		<div @click="func1">func1-click</div>
 
 
+
 	</div>
 </template>
 
@@ -51,7 +52,7 @@
 
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 	@import "baojie.scss";
 
 

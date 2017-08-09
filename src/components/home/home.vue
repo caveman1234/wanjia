@@ -109,7 +109,7 @@
 
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 	@import "home.scss";
 
 </style>
