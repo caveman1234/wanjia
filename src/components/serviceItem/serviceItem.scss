@@ -1,0 +1,28 @@
+.serviceItem {
+    padding-left: 15px;
+    .item {
+        .title {
+            position: relative;
+            &::after {
+                content: '';
+                position: absolute;
+                width: 75px;
+                height: 2px;
+                top: 130%;
+                left: 0;
+                background: #52b8a4;
+            }
+        }
+        &:nth-child(2) {
+            .title {
+                &::after {
+                    width: 60px;
+                }
+            }
+        }
+        .content {
+            font-size: 14px;
+            line-height: 25px;
+        }
+    }
+}

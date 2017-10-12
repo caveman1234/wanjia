@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div>order</div>
+		<div>敬请期待1...</div>
 
 
 	</div>

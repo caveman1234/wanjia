@@ -1,0 +1,53 @@
+.charge {
+    padding-left: 15px;
+    .title {
+        position: relative;
+        &::after {
+            content: '';
+            position: absolute;
+            width: 75px;
+            height: 2px;
+            top: 130%;
+            left: 0;
+            background: #52b8a4;
+        }
+    }
+    .content {
+        .item {
+            .itemTitle {
+                font-weight: 500;
+                line-height: 30px;
+            }
+            .itemContent {
+                color: #999999;
+                font-size: 13px;
+                line-height: 25px;
+            }
+        }
+    }
+}
+
+.baojie {
+    padding-left: 15px;
+    .title {
+        position: relative;
+        &::after {
+            content: '';
+            position: absolute;
+            width: 75px;
+            height: 2px;
+            top: 130%;
+            left: 0;
+            background: #52b8a4;
+        }
+    }
+    .itemTitle {
+        font-weight: 500;
+        line-height: 30px;
+    }
+    .itemContent {
+        color: #999999;
+        font-size: 13px;
+        line-height: 25px;
+    }
+}

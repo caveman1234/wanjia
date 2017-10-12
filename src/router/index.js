@@ -28,14 +28,29 @@ export let router = new Router({
             ]
         },
         {
+            path: '/serviceCharge',
+            name: 'serviceCharge',
+            component: resolve => require(['@/components/serviceCharge/serviceCharge'], resolve)
+        },
+        {
+            path: '/serviceItem',
+            name: 'serviceItem',
+            component: resolve => require(['@/components/serviceItem/serviceItem'], resolve)
+        },
+        {
+            path: '/aboutUs',
+            name: 'aboutUs',
+            component: resolve => require(['@/components/aboutUs/aboutUs'], resolve)
+        },
+        {
+            path: '/serviceSecurity',
+            name: 'serviceSecurity',
+            component: resolve => require(['@/components/serviceSecurity/serviceSecurity'], resolve)
+        },
+        {
             path: '/baojie',
             name: 'baojie',
             component: resolve => require(['@/components/baojie/baojie'], resolve)
-        },
-        {
-            path: '/test1',
-            name: 'test1',
-            component: resolve => require(['@/components/test1'], resolve)
         }
     ]
 });

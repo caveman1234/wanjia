@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div>personal</div>
+		<div>敬请期待2...</div>
 
 
 	</div>
