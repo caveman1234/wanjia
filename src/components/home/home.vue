@@ -14,7 +14,7 @@
 				</router-link>
 				<div style="margin-top: 5px;">服务项目</div>
 			</FlexboxItem>
-			
+
 		</Flexbox>
 		<Flexbox class="flexbox">
 			<FlexboxItem class="_flexitem">
@@ -30,7 +30,6 @@
 				<div style="margin-top: 5px;">关于我们</div>
 			</FlexboxItem>
 		</Flexbox>
-
 
 		<div style="display:none;">
 			<div style="height: 20px;background: #dcdede"></div>
@@ -50,23 +49,24 @@
 </template>
 
 <script>
+
 import {
-	Flexbox, FlexboxItem, Group, Grid, GridItem
+	Flexbox, FlexboxItem, Group, Grid, GridItem,Loading
 } from 'vux'
 export default {
 	components: {
-		Flexbox, FlexboxItem, Group, Grid, GridItem
+		Flexbox, FlexboxItem, Group, Grid, GridItem,Loading
 	},
 	data() {
 		return {
-			height:document.documentElement.clientWidth/2
+			height: document.documentElement.clientWidth / 2
 		}
 	},
-	methods: {},
-	mounted(){
+	
+	mounted() {
 		let _this = this;
-		window.onresize = function(){
-			_this.height = document.documentElement.clientWidth/2
+		window.onresize = function() {
+			_this.height = document.documentElement.clientWidth / 2
 		}
 	}
 }
