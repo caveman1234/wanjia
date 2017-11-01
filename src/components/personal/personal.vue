@@ -11,22 +11,26 @@
 
         </div>
         <div v-else class="loginContent">
-            <group>
-                <x-input v-model="userName" title="用户名：" name="username" placeholder="请输入用户名" type="text"></x-input>
-            </group>
-            <group>
-                <x-input v-model="userPwd" title="密码：" name="password" placeholder="请输密码" type="text"></x-input>
-            </group>
+            <div v-if="isLoginContent">
+                <group>
+                    <x-input v-model="userName" title="用户名：" name="username" placeholder="请输入用户名" type="text"></x-input>
+                </group>
+                <group>
+                    <x-input v-model="userPwd" title="密码：" name="password" placeholder="请输密码" type="text"></x-input>
+                </group>
+            </div>
+            <div v-else>
+                <group>
+                    <x-input v-model="registUserName" title="用户名：" name="username" placeholder="请输入用户名" type="text"></x-input>
+                </group>
+                <group>
+                    <x-input v-model="registUserPwd" title="密码：" name="password" placeholder="请输密码" type="text"></x-input>
+                </group>
+            </div>
             <div class="loginButton">
                 <x-button @click.native="login" type="primary">登陆</x-button>
-
             </div>
-            <group>
-                <x-input v-model="registUserName" title="用户名：" name="username" placeholder="请输入用户名" type="text"></x-input>
-            </group>
-            <group>
-                <x-input v-model="registUserPwd" title="密码：" name="password" placeholder="请输密码" type="text"></x-input>
-            </group>
+
             <div class="registButton">
                 <x-button @click.native="regist">注册</x-button>
             </div>
@@ -48,7 +52,8 @@ export default {
             userName: '',
             userPwd: '',
             registUserName: '',
-            registUserPwd: ''
+            registUserPwd: '',
+            isLoginContent: true
         }
     },
     methods: {
@@ -67,7 +72,7 @@ export default {
                     this.userName = '';
                     this.userPwd = '';
                     if (res.data.success) {
-                        this.changeUserInfo({userInfo:res.data.data});
+                        this.changeUserInfo({ userInfo: res.data.data });
                         this.$vux.toast.show({
                             text: res.data.msg
                         })
@@ -86,16 +91,16 @@ export default {
         },
         regist() {
             var params = {
-                userName: this.registUserName,
-                userPwd: this.registUserPwd
+                userName: this.userName,
+                userPwd: this.userPwd
             }
             this.$http.post("http://www.69212222.com:8080/housekeep/vip/register", params)
                 .then(res => {
-                    this.registUserName = '';
-                    this.registUserPwd = '';
+                    this.userName = '';
+                    this.userPwd = '';
                     console.log(res);
                     if (res.data.success) {
-                        this.changeUserInfo({userInfo:res.data.data});
+                        this.changeUserInfo({ userInfo: res.data.data });
                         this.$vux.toast.show({
                             text: res.data.msg
                         })
