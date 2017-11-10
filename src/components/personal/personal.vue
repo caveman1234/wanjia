@@ -13,18 +13,18 @@
         <div v-else class="loginContent">
             <div v-if="isLoginContent">
                 <group>
-                    <x-input v-model="userName" title="用户名：" name="username" placeholder="请输入用户名" type="text"></x-input>
+                    <x-input :required="true" v-model="userName" title="用户名：" name="username" placeholder="请输入用户名" type="text"></x-input>
                 </group>
                 <group>
-                    <x-input v-model="userPwd" title="密码：" name="password" placeholder="请输密码" type="text"></x-input>
+                    <x-input :required="true" type="password" v-model="userPwd" title="密码：" name="password" placeholder="请输密码"></x-input>
                 </group>
             </div>
             <div v-else>
                 <group>
-                    <x-input v-model="registUserName" title="用户名：" name="username" placeholder="请输入用户名" type="text"></x-input>
+                    <x-input :required="true" v-model="registUserName" title="用户名：" name="username" placeholder="请输入用户名" type="text"></x-input>
                 </group>
                 <group>
-                    <x-input v-model="registUserPwd" title="密码：" name="password" placeholder="请输密码" type="text"></x-input>
+                    <x-input :required="true" type="password" v-model="registUserPwd" title="密码：" name="password" placeholder="请输入密码"></x-input>
                 </group>
             </div>
             <div class="loginButton">
@@ -66,7 +66,8 @@ export default {
                 userName: this.userName,
                 userPwd: this.userPwd
             }
-            this.$http.post("http://www.69212222.com:8080/housekeep/vip/login", params)
+            if(params.userName && params.userPwd){
+                this.$http.post("http://www.69212222.com:8080/housekeep/vip/login", params)
                 .then(res => {
                     console.log(res);
                     this.userName = '';
@@ -88,13 +89,21 @@ export default {
                     console.log(res);
                 })
             // this.changeLogin({ isLogin: true });
+            }else{
+                this.$vux.toast.show({
+                    type: "warn",
+                    text:"不能为空"
+                });
+            }
+            
         },
         regist() {
             var params = {
                 userName: this.userName,
                 userPwd: this.userPwd
             }
-            this.$http.post("http://www.69212222.com:8080/housekeep/vip/register", params)
+            if(params.userName && params.userPwd){
+                this.$http.post("http://www.69212222.com:8080/housekeep/vip/register", params)
                 .then(res => {
                     this.userName = '';
                     this.userPwd = '';
@@ -115,6 +124,13 @@ export default {
                 .catch(res => {
                     console.log(res);
                 })
+            }else{
+                this.$vux.toast.show({
+                    type: "warn",
+                    text:"不能为空"
+                });
+            }
+            
         },
         unLogin() {
             this.changeLogin({ isLogin: false });
